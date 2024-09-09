@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCompany - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .products-list {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        .product {
+            width: 30%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product h3 {
+            color: #333;
+        }
+        .product p {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home page</a>
+        <a href="products.html">Products</a>
+        <a href="discover.html">Discover more</a>
+        <a href="contact.html">Contact us</a>
+    </nav>
+    <main>
+        <section>
+            <h1>Welcome to MyCompany</h1>
+            <p>
+                At MyCompany, we create innovative products that transform the way you communicate, defend, and invest. Explore our offerings below and see how our cutting-edge solutions can benefit you.
+            </p>
+        </section>
+        <section class="products-list">
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=400" alt="Intercom">
+                <h3>Intercom</h3>
+                <p>Engage and communicate seamlessly with your customers using our reliable intercommunication platform.</p>
+            </div>
+            <div class="product">
+                <img src="https://i.ytimg.com/vi/zleGmK9Npos/maxresdefault.jpg" alt="Laser gun">
+                <h3>Laser Gun</h3>
+                <p>Protect yourself with our powerful and efficient laser gun, designed for safety and reliability.</p>
+            </div>
+            <div class="product">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/d0/Dogecoin_Logo.png" alt="DOGS crypto">
+                <h3>Cryptocurrency - DOGS</h3>
+                <p>Invest in the future with DOGS, our secure and promising cryptocurrency for savvy investors.</p>
+            </div>
+        </section>
+    </main>
+    <footer style="background-color: #f1f1f1; padding: 20px; text-align: center; position: fixed; bottom: 0; width: 100%;">
+        <p>&copy; 2024 My Company. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a>
+        </p>
+        <p>
+            Follow us on:
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/800px-Facebook_Logo_%282019%29.png" alt="Facebook" style="width:20px;"></a>
+            <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-h-e2hgz8mwGfCt4gvj4IgMG_wAUolVM6w&s" alt="Twitter" style="width:20px;"></a>
+            <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyNj-JmGTB1KNcrDLPW1_DL5EbLjH_uWzruQ&s" alt="Instagram" style="width:20px;"></a>
+        </p>
+    </footer>
+</body>
+</html>
