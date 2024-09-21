@@ -24,7 +24,7 @@ nav a:hover {
 }
 input[type="search"] {
     padding: 5px;
-    border: none;
+    border: 1px;
     border-radius: 3px;
 }
 main {
@@ -33,19 +33,21 @@ main {
 }
 h1 {
     text-align: center;
-    color: #222;
+    color: blue;
     font-size: 2.5rem;
     margin-bottom: 40px;
 }
 h3 {
-    color: #444;
+    color: darkblue;
     font-size: 1.75rem;
     margin-bottom: 10px;
+    text-align: center;
 }
 article {
     margin-bottom: 30px;
     line-height: 1.6;
     font-size: 1.1rem;
+    text-align: center;
 }
 figure {
     text-align: center;
@@ -66,7 +68,7 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
