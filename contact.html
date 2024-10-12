@@ -54,7 +54,7 @@
                 <input type="tel" id="phone" name="phone" class="form-control" required>
             </div>
             <div class="d-grid">
-                <button type="submit" class="btn" style="background-color: #333333; color: white;">Submit</button>
+                <button type="submit" class="btn btn-dark" id="submitButton">Submit</button>
             </div>
         </form>
         <div class="alert alert-success mt-4 d-none" id="successMessage">Form successfully submitted!</div>
@@ -96,6 +96,29 @@
             </div>
         </div>
     </footer>
+    <script>
+        const submitButton = document.getElementById('submitButton');
+        submitButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+            let allFilled = true;
+    
+            formData.forEach((value) => {
+                if (!value) {
+                    allFilled = false;
+                }
+            });
+    
+            if (allFilled) {
+                const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                document.body.style.backgroundColor = randomColor;
+                document.getElementById('successMessage').classList.remove('d-none');
+            }
+        });
+    </script>
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
