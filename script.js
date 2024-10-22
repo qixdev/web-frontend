@@ -16,6 +16,25 @@ document.addEventListener('DOMContentLoaded', function() {
             body.classList.toggle('show');
         });
     });
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    const subscribeModal = document.getElementById('subscribeModal');
+    const closeModal = document.querySelector('.close');
+
+    if (subscribeBtn && subscribeModal && closeModal) {
+        subscribeBtn.addEventListener('click', function () {
+            subscribeModal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', function () {
+            subscribeModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function (event) {
+            if (event.target === subscribeModal) {
+                subscribeModal.style.display = 'none';
+            }
+        });
+    }
 });
 
 function toggleTheme() {
@@ -44,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn'); // get the buttons state
     const productItems = document.querySelectorAll('#product-list .col-lg-4'); // get the items
 
-    filterButtons.forEach(button => {// for each button in buttons
-        button.addEventListener('click', () => { // adding eventListener
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
             const filterValue = button.getAttribute('data-filter'); // getting the state of the attribute
 
             productItems.forEach(item => { // for each product item  in list
@@ -63,3 +82,75 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+function playSound() {
+    const audio = new Audio('http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3');
+    audio.play();
+}
+
+const formHandler = {
+    formElement: document.getElementById('contactForm'),
+    successMessage: document.getElementById('successMessage'),
+    resetButton: document.getElementById('resetButton'),
+    apiResult: document.getElementById('apiResult'),
+
+    init() {
+        this.addEventListeners();
+        this.setupKeyboardNavigation();
+    },
+
+    addEventListeners() {
+            this.formElement.addEventListener('submit', (event) => {
+            event.preventDefault();
+            this.handleSubmit();
+        });
+
+        if (this.resetButton) {
+            this.resetButton.addEventListener('click', () => {
+                this.resetForm();
+            });
+        }
+    },
+
+    setupKeyboardNavigation() {
+        const inputs = Array.from(this.formElement.querySelectorAll('input'));
+        inputs.forEach((input, index) => {
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowDown' && index < inputs.length - 1) {
+                    event.preventDefault();
+                    inputs[index + 1].focus();
+                } else if (event.key === 'ArrowUp' && index > 0) {
+                    event.preventDefault();
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    },
+
+    handleSubmit() {
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+
+        this.successMessage.classList.remove('d-none');
+        playSound();
+
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
+            .then(response => response.json())
+            .then(data => this.showApiResult(data))
+            .catch(error => console.error('Error fetching data:', error));
+    },
+
+    resetForm() {
+        this.formElement.reset();
+        this.successMessage.classList.add('d-none');
+        this.apiResult.classList.add('d-none');
+        document.body.style.backgroundColor = '';
+    },
+
+    showApiResult(data) {
+        this.apiResult.innerHTML = `Fetched Data: <strong>${data.title}</strong>`;
+        this.apiResult.classList.remove('d-none');
+    }
+};
+
+formHandler.init();
+

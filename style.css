@@ -321,3 +321,62 @@ input[type="submit"]:hover {
     background-color: #007bff;
     color: white;
 }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #000000;
+}
+
+/* Button styles for better visualization */
+.btn {
+    cursor: pointer;
+}
+
+#successMessage, #apiResult {
+    transition: opacity 0.5s;
+}
+
+.d-none {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.d-block {
+    opacity: 1;
+    visibility: visible;
+}
