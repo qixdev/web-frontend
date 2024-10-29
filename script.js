@@ -57,31 +57,38 @@ function applySavedTheme() {
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 window.addEventListener('load', applySavedTheme);
 
+document.addEventListener('DOMContentLoaded', function () {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productItems = document.querySelectorAll('#product-list .col-lg-4');
 
-document.addEventListener('DOMContentLoaded', function() {
-    // some explanation for myself
-    const filterButtons = document.querySelectorAll('.filter-btn'); // get the buttons state
-    const productItems = document.querySelectorAll('#product-list .col-lg-4'); // get the items
+    function applyFilter(filterValue) {
+        productItems.forEach(item => {
+            if (filterValue === 'all') {
+                item.style.display = 'block';
+            } else if (item.classList.contains(filterValue)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        const activeButton = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+        if (activeButton) activeButton.classList.add('active');
+    }
+
+    const savedFilter = localStorage.getItem('selectedFilter') || 'all';
+    applyFilter(savedFilter);
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const filterValue = button.getAttribute('data-filter'); // getting the state of the attribute
-
-            productItems.forEach(item => { // for each product item  in list
-                if (filterValue === 'all') { // if the filter value is all then we get everything, adn display each element
-                    item.style.display = 'block';
-                } else if (item.classList.contains(filterValue)) { // otherwise check if the item class is the filter value
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            filterButtons.forEach(btn => btn.classList.remove('active')); // mark all buttons as inactive
-            button.classList.add('active'); // mark the only clicked button as active.
+            const filterValue = button.getAttribute('data-filter');
+            localStorage.setItem('selectedFilter', filterValue);
+            applyFilter(filterValue);
         });
     });
 });
+
 function playSound() {
     const audio = new Audio('http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3');
     audio.play();
