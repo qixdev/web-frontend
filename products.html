@@ -26,13 +26,14 @@
                         <a class="nav-link" href="discover.html">Discover more</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact us</a>
+                        <a class="nav-link" href="contact.html">Contact Us</a>
                     </li>
                 </ul>
             </div>
-            <button id="loginBtn" class="btn btn-primary">Login</button>
-            <button id="logoutBtn" class="btn btn-secondary d-none">Logout</button>
-            <button id="subscribeBtn" class="btn btn-primary">Subscribe</button>
+            <button id="loginBtn" class="btn btn-primary button-spacing">Login</button>
+            <button id="registerBtn" class="btn btn-primary button-spacing">Register</button>
+            <button id="logoutBtn" class="btn btn-secondary button-spacing d-none">Logout</button>
+            <button id="subscribeBtn" class="btn btn-primary button-spacing">Subscribe</button>  
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
@@ -148,6 +149,23 @@
                     <input type="email" class="form-control" id="email" placeholder="Enter your email">
                 </div>
                 <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Register</h3>
+            <form id="registerForm">
+                <div class="mb-3">
+                    <label for="registerEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="registerPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>

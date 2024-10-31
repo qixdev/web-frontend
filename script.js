@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Авторизация
     const loginBtn = document.getElementById('loginBtn');
     const logoutBtn = document.getElementById('logoutBtn');
+    const registerBtn = document.getElementById('registerBtn');
     const loginModal = document.getElementById('loginModal');
     const loginCloseBtn = loginModal?.querySelector('.close');
     const loginForm = document.getElementById('loginForm');
@@ -69,16 +70,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const isLoggedIn = !!localStorage.getItem('userEmail');
         loginBtn.classList.toggle('d-none', isLoggedIn);
         logoutBtn.classList.toggle('d-none', !isLoggedIn);
+        registerBtn.classList.toggle('d-none', isLoggedIn);
     }
     loginBtn?.addEventListener('click', () => loginModal.style.display = 'block');
     loginCloseBtn?.addEventListener('click', () => loginModal.style.display = 'none');
     loginForm?.addEventListener('submit', (event) => {
         event.preventDefault();
-        localStorage.setItem('userEmail', document.getElementById('loginEmail').value);
-        localStorage.setItem('userPassword', document.getElementById('loginPassword').value);
-        alert('Успешный вход в систему');
-        loginModal.style.display = 'none';
-        checkLoginStatus();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+    
+        if (localStorage.getItem(email) === password) {
+            localStorage.setItem('userEmail', email);
+            alert('Successfully logged in!');
+            loginModal.style.display = 'none';
+            checkLoginStatus();
+        } else {
+            alert('Invalid email or password.');
+        }
     });
     logoutBtn?.addEventListener('click', () => {
         localStorage.removeItem('userEmail');
@@ -90,6 +98,32 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.target === loginModal) loginModal.style.display = 'none';
     });
     checkLoginStatus();
+
+    // Регистрация
+    const registerModal = document.getElementById('registerModal');
+    const registerCloseBtn = registerModal?.querySelector('.close');
+    const registerForm = document.getElementById('registerForm');
+
+    registerBtn?.addEventListener('click', () => registerModal.style.display = 'block');
+
+    registerCloseBtn?.addEventListener('click', () => registerModal.style.display = 'none');
+
+    window.addEventListener('click', (event) => {
+        if (event.target === registerModal) registerModal.style.display = 'none';
+    });
+    registerForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+    
+        if (localStorage.getItem(email)) {
+            alert('User with this email already exists.');
+        } else {
+            localStorage.setItem(email, password);
+            alert('Registration successful!');
+            registerModal.style.display = 'none';
+        }
+    });
 
     // Звук
     function playSound() {

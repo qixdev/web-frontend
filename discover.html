@@ -30,9 +30,10 @@
                     </li>
                 </ul>
             </div>
-            <button id="loginBtn" class="btn btn-primary">Login</button>
-            <button id="logoutBtn" class="btn btn-secondary d-none">Logout</button>
-            <button id="subscribeBtn" class="btn btn-primary">Subscribe</button>
+            <button id="loginBtn" class="btn btn-primary button-spacing">Login</button>
+            <button id="registerBtn" class="btn btn-primary button-spacing">Register</button>
+            <button id="logoutBtn" class="btn btn-secondary button-spacing d-none">Logout</button>
+            <button id="subscribeBtn" class="btn btn-primary button-spacing">Subscribe</button>  
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
@@ -51,7 +52,7 @@
                     </button>
                 </h2>
                 <div class="accordion-body">
-                    We are a team of students inspired by new technology, striving to take our knowledge forward into the development of innovative solutions. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quidem tempora, cumque dolores placeat ab qui asperiores...
+                    We are a team of students inspired by new technology, striving to take our knowledge forward into the development of innovative solutions. Driven by curiosity and a passion for problem-solving, we aim to bridge the gap between theoretical knowledge and practical application. By working on real-world projects, we challenge ourselves to think creatively, learn continuously, and push the boundaries of what’s possible.
                 </div>
             </div>
             <div class="accordion-item">
@@ -61,7 +62,7 @@
                     </button>
                 </h2>
                 <div class="accordion-body">
-                    Our goal is to drive innovation by combining advanced technology with creativity, pushing boundaries to make a real impact. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae perferendis, laboriosam quo fuga voluptates...
+                    Our goal is to drive innovation by combining advanced technology with creativity, pushing boundaries to make a real impact. We aim to transform ideas into actionable solutions that not only meet today's challenges but also anticipate future needs. By fostering a collaborative environment, we empower our teams to think boldly, embrace diverse perspectives, and remain agile in the face of rapid change.
                 </div>
             </div>
             <div class="accordion-item">
@@ -71,7 +72,7 @@
                     </button>
                 </h2>
                 <div class="accordion-body">
-                    Our unique approach to problem-solving and our passion for delivering cutting-edge solutions sets us apart. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae perferendis, laboriosam quo fuga voluptates qui hic eos...
+                    Our unique approach to problem-solving and our passion for delivering cutting-edge solutions set us apart. We thrive on tackling complex challenges with creativity, dedication, and precision. By integrating the latest advancements with a deep understanding of our clients’ needs, we create tailored solutions that drive tangible results. Our team is committed to excellence, continuously pushing the boundaries of what’s possible to deliver not just products, but meaningful impacts that elevate businesses and enrich lives. 
                 </div>
             </div>
         </div>
@@ -144,6 +145,23 @@
                     <input type="email" class="form-control" id="email" placeholder="Enter your email">
                 </div>
                 <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Register</h3>
+            <form id="registerForm">
+                <div class="mb-3">
+                    <label for="registerEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="registerPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>
