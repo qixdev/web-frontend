@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #e1e6ed;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@ body {
 }
 
 nav {
-    background-color: #444;
+    background-color: #007bff;
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -93,7 +93,7 @@ figcaption {
 
 footer {
     background-color: #222;
-    color: #fff;
+    color: #222;
     padding: 20px;
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -214,7 +214,7 @@ input[type="tel"] {
 }
 
 input[type="submit"] {
-    background-color: #333;
+    background-color: #181a1b;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -245,7 +245,7 @@ input[type="submit"]:hover {
 }
 
 .accordion-header {
-    background-color: #f8f9fa;
+    background-color: #181a1b;
 }
 
 .accordion-button {
@@ -275,7 +275,7 @@ input[type="submit"]:hover {
 }
 
 .dark-theme {
-    background-color: #2d2d30 !important;
+    background-color: #181a1b !important;
     color: white !important;
 }
 
@@ -286,12 +286,12 @@ input[type="submit"]:hover {
 }
 
 .dark-theme footer {
-    background-color: #333 !important;
+    background-color: inherit !important;
     color: white;
 }
 
 .dark-theme input.form-control {
-    background-color: #333;
+    background-color: #181a1b;
     color: white;
     border-color: #555;
     transition: background-color;
@@ -302,13 +302,13 @@ input[type="submit"]:hover {
 }
 
 .dark-theme .bg-light {
-    background-color: #333 !important;
+    background-color: #181a1b !important;
     color: white !important;
 }
 
 .dark-theme input.form-control,
 .dark-theme label.form-label {
-    background-color: #444;
+    background-color: #181a1b;
     color: white;
     border-color: #555;
 }
@@ -381,4 +381,58 @@ h1 {
 }
 .button-spacing {
     margin-right: 10px;
+}
+.theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 1.5em;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
