@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Активный навбар
+    const currentPath = window.location.pathname.split("/").pop()
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href').split("/").pop();
+
+        if (linkPath === currentPath) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
     // Функция обновления времени
     function updateDateTime() {
         const now = new Date();
@@ -192,4 +205,5 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     formHandler.init();
+
 });
