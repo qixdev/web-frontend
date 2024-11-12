@@ -4,6 +4,9 @@ By:
 - [Ruslan Kim](https://github.com/akariss21)
 - [Danial Baitakov](https://github.com/yourusername)
 
+## Github Pages
+https://qixdev.github.io/web-frontend/
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Features](#features)
